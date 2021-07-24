@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Ping
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="col-12 text-center">
+  <h1>Ping</h1>
+</div>
+
+<form method="post" id="ajax_form" action=""  >
+  {% csrf_token %}
+  <div id="ping">
+    <textarea class="form-control" id="hosts" rows="10" minlength="4" placeholder="Введите хосты, каждый с новой строки" required></textarea>
+    <button type="submit" class="btn btn-primary mt-3 mb-3" id="btn" disabled>Ping</button>
+  </div>
+</form>
+
+<div id="result">
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'control/js/scripts.js' %}"></script>
+{% endblock scripts %}
